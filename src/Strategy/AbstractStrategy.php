@@ -9,8 +9,11 @@ use PragmaGoTech\Interview\Interface\FeeStrategy;
 
 abstract class AbstractStrategy implements FeeStrategy
 {
+    protected const HUNDRED_POLISH_GROSZE = 100;
+    protected const FIVE_HUNDRED_POLISH_GROSZE = 500;
+
     protected readonly array $feeTermsStructure;
-    
+
     public function __construct()
     {
         $this->feeTermsStructure = [
@@ -59,5 +62,21 @@ abstract class AbstractStrategy implements FeeStrategy
                 20000 => 800,
             ],
         ];
+    }
+    
+    // Methods to convert and round Polish Zloty as Polish Grosze to avoid problems with float precisions
+    protected function roundFee(int $fee): int
+    {
+        return (int) (round($fee / self::FIVE_HUNDRED_POLISH_GROSZE) * self::FIVE_HUNDRED_POLISH_GROSZE);
+    }
+
+    protected function convertToInt(float $float): int
+    {
+        return (int) round($float * self::HUNDRED_POLISH_GROSZE);
+    }
+
+    protected function convertToFloat(int $int): float
+    {
+        return (float) ($int / self::HUNDRED_POLISH_GROSZE);
     }
 }

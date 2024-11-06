@@ -27,6 +27,12 @@ Example inputs/outputs:
 |11,500 PLN   |24 months  |460 PLN |
 |19,250 PLN   |12 months  |385 PLN |
 
+# Require
+
+composer
+php 8.1
+phpunit 9.5
+
 # Installation
 A database or any other external dependency is not required for this test.
 
