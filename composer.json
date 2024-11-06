@@ -9,7 +9,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "PragmaGoTech\\Interview\\": "src/"
+            "PragmaGoTech\\Interview\\": "src/",
+            "Tests\\": "tests/"
         }
+    },
+    "require": {
+        "php": ">=8.1",
+        "phpunit/phpunit": "9.5"
     }
 }
