@@ -34,6 +34,13 @@ A database or any other external dependency is not required for this test.
 composer install
 ```
 
+# Tests
+to run tests suite
+
+```bash
+vendor/bin/phpunit --testdox
+```
+
 # Example
 
 ```php
